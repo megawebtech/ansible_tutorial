@@ -1,0 +1,6 @@
+Today is 27th of April
+Tasks for today:
+1. To make exercise ansible2
+2. To study github
+3. If it is possible to make exercise "git"
+

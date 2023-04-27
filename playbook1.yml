@@ -1,0 +1,10 @@
+---
+
+- name: "Install packages"
+  hosts: 192.168.1.62
+  become: true
+  gather_facts: true
+  roles:
+  - nginx
+
+

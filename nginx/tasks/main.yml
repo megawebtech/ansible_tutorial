@@ -1,0 +1,11 @@
+---
+# tasks file for nginx
+
+- name: "Wait for port 82 to become open on the host, don't start checking f>
+    wait_for:
+      port: 82
+      delay: 10
+
+- name: "show current ip"
+    debug:
+      msg: "http://{{ ansible_facts.all_ipv4_addresses[1] }}:82"

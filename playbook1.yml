@@ -4,7 +4,12 @@
   hosts: 192.168.1.62
   become: true
   gather_facts: true
-  roles:
-  - nginx
+  tasks:
+    - name: "Ensure that requires packages are installed"
+      apt:
+        name:
+          - neofetch
+          - vim
+        stat: present
 
 

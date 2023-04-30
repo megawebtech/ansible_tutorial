@@ -1,0 +1,16 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+#  - name: update repository index
+#    apt:
+#      update_cashe: yes
+
+  - name: install apache  php package
+    package:
+      name:
+        - "{{ apache-package }}"
+        - "{{ php_package }}"
+      state: latest

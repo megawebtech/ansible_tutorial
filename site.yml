@@ -5,6 +5,7 @@
   tasks:
 
   - name: install updates (CentOS)
+    tags: always
     dnf:
       update_only: yes
       update_cache: yes
@@ -14,10 +15,23 @@
   become: true
   tasks:
 
-  - name: install apache and php for CentOS servers
-    dnf:
+  - name: install apache and php for Ubuntu servers
+    tags: apache,apache2,ubuntu
+    apt:
       name:
-        - httpd
-        - php
+        - apache2
+        - libapache2-mod-php
       state: latest
-    when: ansicle_dictribution == "CentOS"
+    when: ansicle_dictribution == "Ubuntu"
+
+
+- hosts: db_servers
+  become: true
+  tasks:
+
+  - name: install postgres package (CentOS)
+    dnf:
+      name: mariadb
+      state: latest
+    when: ansible_distribution == "CentOS"
+  

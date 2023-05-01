@@ -1,0 +1,13 @@
+---
+
+
+- hosts: db_servers
+  become: true
+  tasks:
+
+  - name: install postgres package (CentOS)
+    dnf:
+      name: postgresql
+      state: absent
+    when: ansible_distribution == "CentOS"
+  

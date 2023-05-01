@@ -7,18 +7,9 @@
 #  - name: update repository index
 #    apt:
 #      update_cashe: yes
-  - name: remove apache
-    apt:
-      name: apache2
-      state: absent
 
-
-  - name: remove nginx package
-    apt:
-      name: nginx
+  - name: remove apache from CentOS
+    dnf:
+      name: httpd
       state: absent
-
-  - name: remove php support for apache
-    apt: 
-      name: libapache2-mod-php
-      state: absent
+    when: ansible_distribution == "CentOS"
